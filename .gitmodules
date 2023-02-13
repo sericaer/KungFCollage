@@ -1,0 +1,3 @@
+[submodule "Packages/NoesisGUI"]
+	path = Packages/NoesisGUI
+	url = git@github.com:sericaer/NoesisGUI.git
