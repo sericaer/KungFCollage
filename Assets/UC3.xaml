@@ -14,8 +14,20 @@
         <TextBlock>Left</TextBlock>
         <TextBlock>Left</TextBlock>
     </DockPanel>-->
-    <StackPanel FlowDirection="RightToLeft" Orientation="Horizontal">
+    <!--<StackPanel FlowDirection="RightToLeft" Orientation="Horizontal">
         <Button>123</Button>
         <Label>456</Label>
+    </StackPanel>-->
+    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">
+        <Grid>
+            <StackPanel>
+                <Label>123</Label>
+                <Label>123</Label>
+                <Label>123</Label>
+                <Label>123</Label>
+                <Label>123</Label>
+            </StackPanel>
+        </Grid>
+        <Button HorizontalAlignment="Center" VerticalAlignment="Top">123</Button>
     </StackPanel>
 </UserControl>

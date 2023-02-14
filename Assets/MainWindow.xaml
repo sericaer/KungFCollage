@@ -7,18 +7,27 @@
   xmlns:b="http://schemas.microsoft.com/xaml/behaviors" 
   mc:Ignorable="d"
   d:DataContext="{d:DesignInstance {x:Type local:ViewModel}, IsDesignTimeCreatable=True}">
-    <!--<UserControl.Resources>
+    <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
-    </UserControl.Resources>-->
-    <Grid MinWidth="1024" MinHeight="761.8">
-        <local:UC1 x:Name="UC1"/>
-        <local:UC2 x:Name="UC2" Width="100" Height="200" Margin="252,309,672,253">
-            <Label>123</Label>
-        </local:UC2>
+    </UserControl.Resources>
+    <Grid  HorizontalAlignment="Center" VerticalAlignment="Center">
+        <local:CloseAblePanel x:Name="UC2" CloseType="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Background="Black">
+                <Label>123</Label>
+                <Label>123</Label>
+                <Label>123</Label>
+                <Label>123</Label>
+                <Label>456</Label>
+                <Label>456</Label>
+                <Label>456</Label>
+                <Label>456</Label>
+                <Label>456</Label>
+            </StackPanel>
+        </local:CloseAblePanel>
         <Button HorizontalAlignment="Center" VerticalAlignment="Center" Width="90" Height="90" Margin="589,321,345,350.8">
             <b:Interaction.Triggers>
                 <b:EventTrigger EventName="Click">

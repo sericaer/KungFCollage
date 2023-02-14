@@ -29,6 +29,8 @@ namespace KungFCollage
         {
             NoesisUnity.LoadComponent(this);
         }
+
+        Button BT => FindName(nameof(BT)) as Button;
 #endif
     }
 }

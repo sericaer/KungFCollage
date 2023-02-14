@@ -20,10 +20,10 @@ namespace KungFCollage
         {
             //Grid grid = new Grid();
 
-            ////ContentPresenter content = new ContentPresenter();
-            ////content.Content = Content;
+            //ContentPresenter content = new ContentPresenter();
+            //content.Content = Content;
 
-            ////grid.Children.Add(content);
+            //grid.Children.Add(content);
 
             //var stackPanel = new StackPanel() { Orientation = Orientation.Horizontal };
             //grid.Children.Add(stackPanel);
@@ -31,7 +31,7 @@ namespace KungFCollage
             //var subGrid = new Grid();
             //stackPanel.Children.Add(subGrid);
 
-            //var button = new Button() { Content = "X", Width = 30, Height = 30, VerticalAlignment = VerticalAlignment.Top };
+            //var button = new Button() { Content = "X", Width = 30, Height = 30, VerticalAlignment = VerticalAlignment.Top, HorizontalAlignment = HorizontalAlignment.Right};
             //stackPanel.Children.Add(button);
 
             //button.Click += (sender, e) =>
@@ -43,19 +43,22 @@ namespace KungFCollage
 
             //Content = grid;
 
-            var dock = new DockPanel();
 
-            var button = new Button() { Content = "X", Width = 30, Height = 30, VerticalAlignment = VerticalAlignment.Top, HorizontalAlignment = HorizontalAlignment.Right };
-            dock.Children.Add(button);
+            var stackPanel = new StackPanel() { Orientation = Orientation.Horizontal, VerticalAlignment = VerticalAlignment.Top, HorizontalAlignment = HorizontalAlignment.Right};
+
+            var grid = new Grid();
+            stackPanel.Children.Add(grid);
+
+            var button = new Button() { Content = "X", Width = 30, Height = 30, HorizontalAlignment = HorizontalAlignment.Center, VerticalAlignment = VerticalAlignment.Top};
+            stackPanel.Children.Add(button);
 
             button.Click += (sender, e) =>
             {
                 this.Visibility = Visibility.Hidden;
             };
 
-            Children = dock.Children;
-
-            Content = dock;
+            Children = grid.Children;
+            Content = stackPanel;
         }
     }
 }

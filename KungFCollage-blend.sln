@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31829.152
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KungFCollage-blend", "KungFCollage-blend.csproj", "{9FF59E65-5B4E-40ED-8C71-BA80083720CC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KungFCollage-blend", "KungFCollage-blend.csproj", "{0D6C7821-6085-461A-955A-E000CB160C5D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9FF59E65-5B4E-40ED-8C71-BA80083720CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9FF59E65-5B4E-40ED-8C71-BA80083720CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9FF59E65-5B4E-40ED-8C71-BA80083720CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9FF59E65-5B4E-40ED-8C71-BA80083720CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D6C7821-6085-461A-955A-E000CB160C5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D6C7821-6085-461A-955A-E000CB160C5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D6C7821-6085-461A-955A-E000CB160C5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D6C7821-6085-461A-955A-E000CB160C5D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
