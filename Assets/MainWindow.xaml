@@ -6,49 +6,173 @@
   xmlns:local="clr-namespace:KungFCollage" 
   xmlns:b="http://schemas.microsoft.com/xaml/behaviors" 
   mc:Ignorable="d"
+  d:DesignHeight="900" d:DesignWidth="1440"
   d:DataContext="{d:DesignInstance {x:Type local:ViewModel}, IsDesignTimeCreatable=True}">
     <UserControl.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Resources.xaml"/>
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
+        <Style x:Key="BlueBorder" TargetType="Border">
+            <Setter Property="BorderBrush" Value="Blue"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
     </UserControl.Resources>
-    <Grid  HorizontalAlignment="Center" VerticalAlignment="Center">
-        <local:CloseAblePanel x:Name="UC2" CloseType="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <StackPanel Background="Black">
-                <Label>123</Label>
-                <Label>123</Label>
-                <Label>123</Label>
-                <Label>123</Label>
-                <Label>456</Label>
-                <Label>456</Label>
-                <Label>456</Label>
-                <Label>456</Label>
-                <Label>456</Label>
-            </StackPanel>
-        </local:CloseAblePanel>
-        <Button HorizontalAlignment="Center" VerticalAlignment="Center" Width="90" Height="90" Margin="589,321,345,350.8">
-            <b:Interaction.Triggers>
-                <b:EventTrigger EventName="Click">
-                    <b:ChangePropertyAction TargetName="UC2" PropertyName="Visibility" Value="{x:Static Visibility.Visible}"/>
-                </b:EventTrigger>
-            </b:Interaction.Triggers>
-        </Button>
+
+    <Grid>
+        <DockPanel>
+            <Border DockPanel.Dock="Top" Style="{StaticResource BlueBorder}">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                    <StackPanel Orientation="Vertical">
+                        <Button Content="{Binding Path=CollageName, FallbackValue=COLLAGE_NAME}" Width="160" Height="60"/>
+                        <Button Content="{Binding Path=PlayerName, FallbackValue=PLAYER_NAME}" Width="120" Height="150" HorizontalAlignment="Left"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                        <Button Width="160" Height="45" Padding="0" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="1*"></RowDefinition>
+                                    <RowDefinition Height="1*"></RowDefinition>
+                                    <RowDefinition Height="1*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Row="1" HorizontalContentAlignment="Right" >Prestige</Label>
+                                <Label Grid.Row="1" Grid.Column="1" Padding="2,0,0,0" Content="{Binding Path=Prestige, FallbackValue=9999}"/>
+                                <Label Grid.Row="2" Grid.Column="1" FontSize="10" Padding="2,1,0,0" Content="{Binding Path=PrestigeProfit, FallbackValue=99}"/>
+                            </Grid>
+                        </Button>
+                        <Button Width="160" Height="45" Padding="0" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="1*"></RowDefinition>
+                                    <RowDefinition Height="1*"></RowDefinition>
+                                    <RowDefinition Height="1*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Row="1" HorizontalContentAlignment="Right" >Cash</Label>
+                                <Label Grid.Row="1" Grid.Column="1" Padding="2,0,0,0" Content="{Binding Path=Cash, FallbackValue=9999}"/>
+                                <Label Grid.Row="2" Grid.Column="1" FontSize="10" Padding="2,1,0,0" Content="{Binding Path=CashProfit, FallbackValue=99}"/>
+                            </Grid>
+                        </Button>
+                        <Button Width="160" Height="45" Padding="0" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="1*"></RowDefinition>
+                                    <RowDefinition Height="1*"></RowDefinition>
+                                    <RowDefinition Height="1*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Row="1" HorizontalContentAlignment="Right">Persons</Label>
+                                <Label Grid.Row="1" Grid.Column="1" Padding="2,0,0,0" Content="{Binding Path=PersonCount, FallbackValue=99999}"/>
+                            </Grid>
+                            <b:Interaction.Triggers>
+                                <b:EventTrigger EventName="Click">
+                                    <b:ChangePropertyAction TargetName="centerPanel" PropertyName="Visibility" Value="{x:Static Visibility.Visible}"/>
+                                    <b:ChangePropertyAction TargetName="personsTab" PropertyName="IsSelected" Value="True"/>
+                                </b:EventTrigger>
+                            </b:Interaction.Triggers>
+                        </Button>
+                        <Button Width="160" Height="45" Padding="0" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="1*"></RowDefinition>
+                                    <RowDefinition Height="1*"></RowDefinition>
+                                    <RowDefinition Height="1*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Row="1" HorizontalContentAlignment="Right">Buildings</Label>
+                                <Label Grid.Row="1" Grid.Column="1" Padding="2,0,0,0" Content="{Binding Path=BuildingCount, FallbackValue=99999}"/>
+                            </Grid>
+                            <b:Interaction.Triggers>
+                                <b:EventTrigger EventName="Click">
+                                    <b:ChangePropertyAction TargetName="centerPanel" PropertyName="Visibility" Value="{x:Static Visibility.Visible}"/>
+                                    <b:ChangePropertyAction TargetName="buildingsTab" PropertyName="IsSelected" Value="True"/>
+                                </b:EventTrigger>
+                            </b:Interaction.Triggers>
+                        </Button>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+            <Border DockPanel.Dock="Bottom" Style="{StaticResource BlueBorder}">
+                <StackPanel Orientation="Horizontal">
+                    <Button Width="150" Height="40">Button Middle</Button>
+                    <Button Width="150" Height="40">Button Middle</Button>
+                    <Button Width="150" Height="40">Button Middle</Button>
+                </StackPanel>
+            </Border>
+            <Border DockPanel.Dock="Left" Style="{StaticResource BlueBorder}">
+                <local:CloseAblePanel x:Name="buildingDataPanel" Width="350" Padding="0,60,0,0" HorizontalContentAlignment="Left">
+                    <TabControl>
+                        <TabItem Header="Buildings">
+
+                        </TabItem>
+                    </TabControl>
+                    <StackPanel Width="350">
+                        <Label Foreground="Black" Background="#FF7C7C7C" HorizontalContentAlignment="Center">12345</Label>
+                        <Button>abcde</Button>
+                        <Button>abcde</Button>
+                        <Button>abcde</Button>
+                        <Button>abcde</Button>
+                    </StackPanel>
+                </local:CloseAblePanel>
+            </Border>
+            <Border DockPanel.Dock="Right" Style="{StaticResource BlueBorder}">
+                <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0">
+                    <Slider Maximum="100" Width="200"></Slider>
+                    <Slider Maximum="100" Width="200"></Slider>
+                </StackPanel>
+            </Border>
+            <Border Style="{StaticResource BlueBorder}">
+                <local:CloseAblePanel x:Name ="centerPanel" HorizontalAlignment="Center" VerticalAlignment="Top">
+                    <TabControl Background="{x:Null}" VerticalAlignment="Top" Padding="0">
+                        <TabItem x:Name="personsTab" Visibility="Collapsed">
+                            <ListView>
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn Header="Name" Width="120" DisplayMemberBinding="{Binding Name}"/>
+                                        <GridViewColumn Header="Age" Width="50" DisplayMemberBinding="{Binding Age}" />
+                                        <GridViewColumn Header="Mail" Width="150" DisplayMemberBinding="{Binding Mail}" />
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+                        </TabItem>
+                        <TabItem x:Name="buildingsTab" Visibility="Collapsed">
+                            <TabControl Background="{x:Null}" Padding="0">
+                                <TabItem Name="classRoomsTab" Visibility="Collapsed">
+                                    <ListView>
+                                        <ListView.View>
+                                            <GridView>
+                                                <GridViewColumn Header="Name" Width="Auto" DisplayMemberBinding="{Binding Name}"/>
+                                                <GridViewColumn Header="Age" Width="Auto" DisplayMemberBinding="{Binding Age}" />
+                                                <GridViewColumn Header="Mail" Width="Auto" DisplayMemberBinding="{Binding Mail}" />
+                                            </GridView>
+                                        </ListView.View>
+                                    </ListView>
+                                </TabItem>
+                                <TabItem Name="privateRoomsTab" Visibility="Collapsed">
+                                    <ListView>
+                                        <ListView.View>
+                                            <GridView>
+                                                <GridViewColumn Header="Name" Width="Auto" DisplayMemberBinding="{Binding Name}"/>
+                                                <GridViewColumn Header="Age" Width="Auto" DisplayMemberBinding="{Binding Age}" />
+                                                <GridViewColumn Header="Mail" Width="Auto" DisplayMemberBinding="{Binding Mail}" />
+                                            </GridView>
+                                        </ListView.View>
+                                    </ListView>
+                                </TabItem>
+                            </TabControl>
+                        </TabItem>
+                    </TabControl>
+                </local:CloseAblePanel>
+            </Border>
+        </DockPanel>
     </Grid>
-    <!--<Grid>
-    <Grid.Background>
-      <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-        <GradientStop Offset="0" Color="{Binding TopColor}"/>
-        <GradientStop Offset="1" Color="{Binding BottomColor}"/>
-      </LinearGradientBrush>
-    </Grid.Background>
-    <Viewbox>
-      <StackPanel Margin="100">
-        <TextBlock Text="Hello World!" Foreground="White" TextAlignment="Center" FontSize="16"/>
-        <Button Content="Normal Button" Margin="0,10" Command="{Binding ButtonClicked}"/>
-        <Button Content="Styled Button" Style="{StaticResource StyledButton}" Command="{Binding ButtonClicked}"/>
-      </StackPanel>
-    </Viewbox>
-  </Grid>-->
 </UserControl>
